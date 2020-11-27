@@ -34,6 +34,7 @@ atmega644 = []
 attiny84 = []
 attiny85 = []
 attiny88 = []
+atmega4809 = []
 rt = ["avr-device-macros"]
 
 [dependencies]

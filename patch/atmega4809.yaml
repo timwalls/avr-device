@@ -1,0 +1,192 @@
+_svd: ../svd/atmega4809.svd
+
+PORTA:
+  _modify:
+     DIR:
+       name: DDRA
+       access: read-write
+     DIRCLR:
+       name: DDRA_CLR
+       access: write-only
+     DIRSET:
+       name: DDRA_SET
+       access: write-only
+     DIRTGL:
+       name: DDRA_TGL
+       access: write-only
+     IN:
+       name: PINA
+       access: read-write
+     OUT:
+       name: PORTA
+       access: read-write
+     OUTCLR:
+       name: PORTA_CLR
+       access: write-only
+     OUTSET:
+       name: PORTA_SET
+       access: write-only
+     OUTTGL:
+       name: PORTA_TGL
+       access: write-only
+
+PORTB:
+  _modify:
+    DIR:
+      name: DDRB
+      access: read-write
+    DIRCLR:
+      name: DDRB_CLR
+      access: write-only
+    DIRSET:
+      name: DDRB_SET
+      access: write-only
+    DIRTGL:
+      name: DDRB_TGL
+      access: write-only
+    IN:
+      name: PINB
+      access: read-write
+    OUT:
+      name: PORTB
+      access: read-write
+    OUTCLR:
+      name: PORTB_CLR
+      access: write-only
+    OUTSET:
+      name: PORTB_SET
+      access: write-only
+    OUTTGL:
+      name: PORTB_TGL
+      access: write-only
+
+PORTC:
+  _modify:
+    DIR:
+      name: DDRC
+      access: read-write
+    DIRCLR:
+      name: DDRC_CLR
+      access: write-only
+    DIRSET:
+      name: DDRC_SET
+      access: write-only
+    DIRTGL:
+      name: DDRC_TGL
+      access: write-only
+    IN:
+      name: PINC
+      access: read-write
+    OUT:
+      name: PORTC
+      access: read-write
+    OUTCLR:
+      name: PORTC_CLR
+      access: write-only
+    OUTSET:
+      name: PORTC_SET
+      access: write-only
+    OUTTGL:
+      name: PORTC_TGL
+      access: write-only
+
+PORTD:
+  _modify:
+    DIR:
+      name: DDRD
+      access: read-write
+    DIRCLR:
+      name: DDRD_CLR
+      access: write-only
+    DIRSET:
+      name: DDRD_SET
+      access: write-only
+    DIRTGL:
+      name: DDRD_TGL
+      access: write-only
+    IN:
+      name: PIND
+      access: read-write
+    OUT:
+      name: PORTD
+      access: read-write
+    OUTCLR:
+      name: PORTD_CLR
+      access: write-only
+    OUTSET:
+      name: PORTD_SET
+      access: write-only
+    OUTTGL:
+      name: PORTD_TGL
+      access: write-only
+
+PORTE:
+  _modify:
+    DIR:
+      name: DDRE
+      access: read-write
+    DIRCLR:
+      name: DDRE_CLR
+      access: write-only
+    DIRSET:
+      name: DDRE_SET
+      access: write-only
+    DIRTGL:
+      name: DDRE_TGL
+      access: write-only
+    IN:
+      name: PINE
+      access: read-write
+    OUT:
+      name: PORTE
+      access: read-write
+    OUTCLR:
+      name: PORTE_CLR
+      access: write-only
+    OUTSET:
+      name: PORTE_SET
+      access: write-only
+    OUTTGL:
+      name: PORTE_TGL
+      access: write-only
+
+PORTF:
+  _modify:
+    DIR:
+      name: DDRF
+      access: read-write
+    DIRCLR:
+      name: DDRF_CLR
+      access: write-only
+    DIRSET:
+      name: DDRF_SET
+      access: write-only
+    DIRTGL:
+      name: DDRF_TGL
+      access: write-only
+    IN:
+      name: PINF
+      access: read-write
+    OUT:
+      name: PORTF
+      access: read-write
+    OUTCLR:
+      name: PORTF_CLR
+      access: write-only
+    OUTSET:
+      name: PORTF_SET
+      access: write-only
+    OUTTGL:
+      name: PORTF_TGL
+      access: write-only
+
+
+#_include:
+#  - "common/ac.yaml"
+#  - "common/adc.yaml"
+#  - "common/spi.yaml"
+#  - "common/twi.yaml"
+#  - "common/usart.yaml"
+#  - "common/wdt.yaml"
+#
+#  - "timer/atmega328p.yaml"

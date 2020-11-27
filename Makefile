@@ -1,8 +1,23 @@
 all: deps chips
 
-CHIPS := atmega1280 atmega168 atmega2560 atmega8 atmega328p atmega328pb atmega32u4 atmega48p atmega64 atmega644 attiny84 attiny85 attiny88
+CHIPS := atmega4809 atmega1280 atmega168 atmega2560 atmega8 atmega328p atmega328pb atmega32u4 atmega48p atmega64 atmega644 attiny84 attiny85 attiny88
 
 RUSTUP_TOOLCHAIN ?= nightly
+
+# We need a more recent version of svd2rust than currently 'shipped', to fix
+# a bug with generating invalid code (uses 'async', a reserved word, in a
+# generated method name,) but on the other hand not *so* new that we run into
+# a bug where it generates code hardwired to "cortex_m::interrupt"...
+#
+# Specifically, we need commit d6c668dedfea of svd2rust.  Fun and games...
+#
+# So:
+#   git clone https://github.com/rust-embedded/svd2rust.git
+#   cd svd2rust
+#   git reset --hard d6c668dedfea
+#   cargo build --release
+# and then point this at where your built svd2rust is
+SVD2RUST = /Volumes/Development/Arduino/rust/svd2rust/target/release/svd2rust
 
 PATCHES := $(foreach chip, $(CHIPS), $(wildcard patch/$(chip).yaml))
 DEPS := $(foreach patch, $(PATCHES), $(patsubst patch/%.yaml, .deps/%.d, $(patch)))
@@ -35,7 +50,7 @@ svd/%.svd.patched: svd/%.svd .deps/%.d
 src/devices/%/mod.full.rs: svd/%.svd.patched
 	@mkdir -p $(@D)
 	@echo -e "\tSVD2RUST\t$*"
-	@cd $(@D); svd2rust --generic_mod --target none -i $(realpath $<)
+	@cd $(@D); $(SVD2RUST) --generic_mod --target none -i $(realpath $<)
 	@mv $(@D)/lib.rs $@
 	@mv $(@D)/generic.rs $(@D)/../../generic.rs
 

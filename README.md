@@ -23,6 +23,7 @@ Via the feature you can select which chip you want the register specifications f
 * `attiny84`
 * `attiny85`
 * `attiny88`
+* `atmega4809`
 
 ## Build Instructions
 The version on `crates.io` is pre-built.  The following is only necessary when trying to build this crate from source.
@@ -35,6 +36,16 @@ cargo install form
 rustup component add --toolchain nightly rustfmt
 pip3 install --user svdtools
 ```
+> Actually, at the time of writing the current version of svd2rust is broken.
+> You will need to build commit `d6c668dedfea` manually like so:
+> 
+> ```bash
+> git clone https://github.com/rust-embedded/svd2rust.git
+> cd svd2rust
+> git reset --hard d6c668dedfea
+> cargo build --release
+> ```
+
 
 [atdf2svd]: https://github.com/Rahix/atdf2svd
 [svd2rust]: https://github.com/rust-embedded/svd2rust
